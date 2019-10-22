@@ -7,10 +7,14 @@ function split(wholeArray) {
 function merge(arr1, arr2) {
   let sortedArr = [];
   while (arr1.length) {
+    // if arr1 is longer than arr2
+    // ternary will be falsey and shift arr1
     arr1[0] > arr2[0]
       ? sortedArr.push(arr2.shift())
       : sortedArr.push(arr1.shift());
   }
+  // if arr2 is longer than arr1
+  // the rest is concatenated below
   return sortedArr.concat(arr2);
 }
 
