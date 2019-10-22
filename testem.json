@@ -1,0 +1,6 @@
+{
+  "framework": "jasmine2",
+  "srs_files": [
+    "**/*.js"
+  ]
+}
