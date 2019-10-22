@@ -20,3 +20,16 @@ describe('Merge function', function() {
     expect(merge([1, 3], [2])).toEqual([1, 2, 3]);
   });
 });
+
+describe('Merge Sort function', function() {
+  it('can take an empty array', function() {
+    // your code here
+    expect(mergeSort([])).toEqual([]);
+  });
+  it('is able to take an array and return a sorted array', function() {
+    // your code here
+    expect(mergeSort([2, 1])).toEqual([1, 2]);
+    expect(mergeSort([2, 78, 7, 5, 1, 3, 4])).toEqual([1, 2, 3, 4, 5, 7, 78]);
+  });
+
+});
