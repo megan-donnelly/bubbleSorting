@@ -1,27 +1,28 @@
-function split(wholeArray) {
-  const midpoint = Math.floor(wholeArray.length / 2);
-  const firstHalf = wholeArray.slice(0, midpoint);
-  const secondHalf = wholeArray.slice(midpoint);
+function split(arr) {
+  const midpoint = Math.floor(arr.length / 2);
+  const firstHalf = arr.slice(0, midpoint);
+  const secondHalf = arr.slice(midpoint);
   return [firstHalf, secondHalf];
 }
+
 function merge(arr1, arr2) {
-  let sortedArr = [];
+  let output = [];
   while (arr1.length) {
-    // if arr1 is longer than arr2
-    // ternary will be falsey and shift arr1
-    arr1[0] > arr2[0]
-      ? sortedArr.push(arr2.shift())
-      : sortedArr.push(arr1.shift());
+    arr1[0] > arr2[0] ? output.push(arr2.shift()) : output.push(arr1.shift());
   }
-  // if arr2 is longer than arr1
-  // the rest is concatenated below
-  return sortedArr.concat(arr2);
+  return output.concat(arr2);
 }
 
-function mergeSort(array) {
-  if (array.length <= 1) return array;
-  let [firstHalf, secondHalf] = split(array);
-  if (firstHalf.length <= 1 && secondHalf <= 1)
-    return merge(firstHalf, secondHalf);
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let [firstHalf, secondHalf] = split(arr);
   return merge(mergeSort(firstHalf), mergeSort(secondHalf));
 }
+
+// function mergeSort(arr) {
+//   if (arr.length <= 1) return arr;
+//   const midpoint = Math.floor(arr.length / 2);
+//   const firstHalf = arr.slice(0, midpoint);
+//   const secondHalf = arr.slice(midpoint);
+//   return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+// }
